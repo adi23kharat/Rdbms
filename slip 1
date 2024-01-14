@@ -1,0 +1,43 @@
+create table cli23
+(cno number(3)primary key,
+cname varchar2(15),
+addr varchar2(15),
+bdate date
+);
+
+create table pol23
+(pno number(3)primary key,
+desc varchar2(15),
+mamt number(8)check(mamt>0),
+pamt number(8)check(pamt>0),
+pdate date
+);
+
+create table cpol23
+(cno number(3)references cli23(cno)
+ON DELETE CASCADE,
+pno number(3)references pol23(pno)
+ON DELETE CASCADE
+);
+
+
+insert all
+into cli23 values(1,'Mr.Aditya','Kalyaninagar','22-dec-2004')
+into cli23 values(2,'Mr.Aniket','Pragatinagar','12-dec-2003')
+into cli23 values(3,'Mr.Radha','Ramnagar','09-july-2000')
+into cli23 values(4,'Mr.Gauri','Suhasnagar','01-jan-2004')
+select * from dual;
+
+insert all
+into pol23 values(11,'jivan policy',500000,700000,'22-dec-2019')
+into pol23 values(12,'Health policy',6000000,900000,'12-dec-2012')
+into pol23 values(13,'Education policy',300000,400000,'09-july-2016')
+into pol23 values(14,'Jivan policy',400000,5000000,'01-jan-2007')
+select * from dual;
+
+insert all
+into cpol23 values(1,11)
+into cpol23 values(2,12)
+into cpol23 values(3,13)
+into cpol23 values(4,14)
+select * from dual;
