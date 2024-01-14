@@ -1,0 +1,39 @@
+create table it23
+(ino number(3)primary key,
+iname varchar2(15)
+);
+
+create table su23
+(sno number(4)primary key,
+sname varchar2(15),
+addr varchar2(15),
+city varchar2(15)
+);
+
+create table itsu23
+(ino number(3)references it23(ino)
+ON DELETE CASCADE,
+sno number(3)references su23(sno)
+ON DELETE CASCADE
+);
+
+insert all
+into it23 values(1,'cooker')
+into it23 values(2,'Roti maker')
+into it23 values(3,'Shigadi')
+into it23 values(4,'Chair')
+select * from dual;
+
+insert all
+into su23 values(11,'Mr.Ashok','Kalyaninagar','Baramati')
+into su23 values(12,'Mr.Aniket','Suhasnagar','Pune')
+into su23 values(13,'Mr.Mohan','Ramnagar','Solapur')
+into su23 values(14,'Mr.Raman','Utkarshnagar','Mumbai')
+select * from dual;
+
+insert all
+into itsu23(1,11)
+into itsu23(2,12)
+into itsu23(3,13)
+into itsu23(4,14)
+select * from dual;
