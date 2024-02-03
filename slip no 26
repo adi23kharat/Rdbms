@@ -1,0 +1,2 @@
+Hod query
+select pname,dname,HOD from drjt23,prjt23 where drjt23.dno=prjt23.dno and pname=(select max(pname)from drjt23,prjt23 where drjt23.dno=prjt23.dno) group by HOD;
