@@ -1,0 +1,2 @@
+plan Query
+select nooffreecalls,pname from plan23,cust23 and nofc=(select min(nofc) from plan23);
